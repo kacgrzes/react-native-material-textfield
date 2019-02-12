@@ -352,6 +352,8 @@ export default class TextField extends PureComponent {
       containerStyle,
       inputContainerStyle: inputContainerStyleOverrides,
       clearTextOnFocus,
+      errorProps = {},
+      titleProps = {},
       ...props
     } = this.props;
 
@@ -539,8 +541,8 @@ export default class TextField extends PureComponent {
 
         <Animated.View style={helperContainerStyle}>
           <View style={styles.flex}>
-            <Helper style={[errorStyle, titleTextStyle]}>{error}</Helper>
-            <Helper style={[titleStyle, titleTextStyle]}>{title}</Helper>
+            <Helper style={[errorStyle, titleTextStyle]} {...errorProps}>{error}</Helper>
+            <Helper style={[titleStyle, titleTextStyle]} {...titleProps}>{title}</Helper>
           </View>
 
           <Counter {...counterProps} />
